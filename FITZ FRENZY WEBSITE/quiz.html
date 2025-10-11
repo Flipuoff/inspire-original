@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Your Neuro-Fit | FitFrenzy</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Poppins:wght@300;400;600&display=swap');
+        .progress-bar {
+            height: 6px;
+            transition: width 0.3s ease;
+        }
+        input[type="radio"]:checked + label {
+            border-color: #3b82f6;
+            background-color: #eff6ff;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-blue-600">FitFrenzy</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 font-medium">Back to Shop</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Quiz Container -->
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="bg-white rounded-3xl shadow-sm overflow-hidden">
+            <!-- Progress Bar -->
+            <div class="bg-gray-200 h-2">
+                <div id="quiz-progress" class="progress-bar bg-blue-600" style="width: 0%"></div>
+            </div>
+            
+            <!-- Quiz Content -->
+            <div class="p-8 md:p-12">
+                <div id="quiz-container">
+                    <!-- Question 1 -->
+                    <div class="quiz-step active" data-step="1">
+                        <div class="text-center mb-8">
+                            <h2 class="text-3xl font-bold text-gray-900 mb-3">Let's Find Your Neuro-Fit</h2>
+                            <p class="text-lg text-gray-600">Answer just 5 quick questions to get personalized recommendations</p>
+                        </div>
+                        
+                        <div class="mb-8">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">1. What's your primary fitness goal?</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <input type="radio" id="goal-strength" name="goal" value="strength" class="hidden">
+                                    <label for="goal-strength" class="block border-2 border-gray-200 rounded-xl p-6 cursor-pointer hover:border-blue-400 transition">
+                                        <div class="flex flex-col items-center text-center">
+                                            <div class="bg-blue-100 p-3 rounded-full mb-3">
+                                                <i data-feather="activity" class="text-blue-600"></i>
+                                            </div>
+                                            <h4 class="font-bold text-gray-900 mb-1">Build Strength</h4>
+                                            <p class="text-sm text-gray-600">Muscle growth and power</p>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="goal-endurance" name="goal" value="endurance" class="hidden">
+                                    <label for="goal-endurance" class="block border-2 border-gray-200 rounded-xl p-6 cursor-pointer hover:border-blue-400 transition">
+                                        <div class="flex flex-col items-center text-center">
+                                            <div class="bg-green-100 p-3 rounded-full mb-3">
+                                                <i data-feather="trending-up" class="text-green-600"></i>
+                                            </div>
+                                            <h4 class="font-bold text-gray-900 mb-1">Improve Endurance</h4>
+                                            <p class="text-sm text-gray-600">Cardio and stamina</p>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="goal-flexibility" name="goal" value="flexibility" class="hidden">
+                                    <label for="goal-flexibility" class="block border-2 border-gray-200 rounded-xl p-6 cursor-pointer hover:border-blue-400 transition">
+                                        <div class="flex flex-col items-center text-center">
+                                            <div class="bg-purple-100 p-3 rounded-full mb-3">
+                                                <i data-feather="wind" class="text-purple-600"></i>
+                                            </div>
+                                            <h4 class="font-bold text-gray-900 mb-1">Increase Flexibility</h4>
+                                            <p class="text-sm text-gray-600">Yoga and mobility</p>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="goal-recovery" name="goal" value="recovery" class="hidden">
+                                    <label for="goal-recovery" class="block border-2 border-gray-200 rounded-xl p-6 cursor-pointer hover:border-blue-400 transition">
+                                        <div class="flex flex-col items-center text-center">
+                                            <div class="bg-red-100 p-3 rounded-full mb-3">
+                                                <i data-feather="heart" class="text-red-600"></i>
+                                            </div>
+                                            <h4 class="font-bold text-gray-900 mb-1">Enhance Recovery</h4>
+                                            <p class="text-sm text-gray-600">Rest and regeneration</p>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-end">
+                            <button class="next-btn bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition">
+                                Next Question
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 2 -->
+                    <div class="quiz-step hidden" data-step="2">
+                        <div class="mb-8">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">2. What's your biggest motivation challenge?</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <input type="radio" id="challenge-boredom" name="challenge" value="boredom" class="hidden">
+                                    <label for="challenge-boredom" class="block border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-blue-400 transition">
+                                        <div class="flex items-center">
+                                            <div class="bg-yellow-100 p-2 rounded-full mr-4">
+                                                <i data-feather="clock" class="text-yellow-600"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-gray-900">Getting bored quickly</h4>
+                                                <p class="text-sm text-gray-600">I lose interest in repetitive workouts</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="challenge-starting" name="challenge" value="starting" class="hidden">
+                                    <label for="challenge-starting" class="block border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-blue-400 transition">
+                                        <div class="flex items-center">
+                                            <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                                <i data-feather="play" class="text-blue-600"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-gray-900">Getting started</h4>
+                                                <p class="text-sm text-gray-600">I struggle to begin my workouts</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="challenge-consistency" name="challenge" value="consistency" class="hidden">
+                                    <label for="challenge-consistency" class="block border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-blue-400 transition">
+                                        <div class="flex items-center">
+                                            <div class="bg-green-100 p-2 rounded-full mr-4">
+                                                <i data-feather="calendar" class="text-green-600"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-gray-900">Staying consistent</h4>
+                                                <p class="text-sm text-gray-600">I can't maintain a routine</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="challenge-focus" name="challenge" value="focus" class="hidden">
+                                    <label for="challenge-focus" class="block border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-blue-400 transition">
+                                        <div class="flex items-center">
+                                            <div class="bg-purple-100 p-2 rounded-full mr-4">
+                                                <i data-feather="eye" class="text-purple-600"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-gray-900">Staying focused</h4>
+                                                <p class="text-sm text-gray-600">My mind wanders during exercise</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button class="prev-btn bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-3 px-6 rounded-lg transition">
+                                Previous
+                            </button>
+                            <button class="next-btn bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition">
+                                Next Question
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 3 -->
+                    <div class="quiz-step hidden" data-step="3">
+                        <div class="mb-8">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">3. How do you prefer to work out?</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div>
+                                    <input type="radio" id="setting-home" name="setting" value="home" class="hidden">
+                                    <label for="setting-home" class="block border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-blue-400 transition h-full">
+                                        <div class="flex flex-col items-center text-center h-full">
+                                            <img src="http://static.photos/home/200x200/1" alt="Home" class="w-16 h-16 object-cover rounded-full mb-3">
+                                            <h4 class="font-bold text-gray-900 mb-1">At Home</h4>
+                                            <p class="text-sm text-gray-600">Limited space equipment</p>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="setting-gym" name="setting" value="gym" class="hidden">
+                                    <label for="setting-gym" class="block border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-blue-400 transition h-full">
+                                        <div class="flex flex-col items-center text-center h-full">
+                                            <img src="http://static.photos/gym/200x200/1" alt="Gym" class="w-16 h-16 object-cover rounded-full mb-3">
+                                            <h4 class="font-bold text-gray-900 mb-1">At the Gym</h4>
+                                            <p class="text-sm text-gray-600">Full equipment access</p>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="setting-outdoor" name="setting" value="outdoor" class="hidden">
+                                    <label for="setting-outdoor" class="block border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-blue-400 transition h-full">
+                                        <div class="flex flex-col items-center text-center h-full">
+                                            <img src="http://static.photos/outdoor/200x200/1" alt="Outdoor" class="w-16 h-16 object-cover rounded-full mb-3">
+                                            <h4 class="font-bold text-gray-900 mb-1">Outdoors</h4>
+                                            <p class="text-sm text-gray-600">Running, parks, etc.</p>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button class="prev-btn bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-3 px-6 rounded-lg transition">
+                                Previous
+                            </button>
+                            <button class="next-btn bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition">
+                                Next Question
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 4 -->
+                    <div class="quiz-step hidden" data-step="4">
+                        <div class="mb-8">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">4. What's your sensory preference?</h3>
+                            <p class="text-gray-600 mb-4">Help us understand what engages your brain during workouts</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <input type="radio" id="sensory-visual" name="sensory" value="visual" class="hidden">
+                                    <label for="sensory-visual" class="block border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-blue-400 transition">
+                                        <div class="flex items-center">
+                                            <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                                <i data-feather="eye" class="text-blue-600"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-gray-900">Visual</h4>
+                                                <p class="text-sm text-gray-600">Colorful, well-designed equipment</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="sensory-auditory" name="sensory" value="auditory" class="hidden">
+                                    <label for="sensory-auditory" class="block border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-blue-400 transition">
+                                        <div class="flex items-center">
+                                            <div class="bg-purple-100 p-2 rounded-full mr-4">
+                                                <i data-feather="headphones" class="text-purple-600"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-gray-900">Auditory</h4>
+                                                <p class="text-sm text-gray-600">Music or sound feedback</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="sensory-tactile" name="sensory" value="tactile" class="hidden">
+                                    <label for="sensory-tactile" class="block border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-blue-400 transition">
+                                        <div class="flex items-center">
+                                            <div class="bg-red-100 p-2 rounded-full mr-4">
+                                                <i data-feather="activity" class="text-red-600"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-gray-900">Tactile</h4>
+                                                <p class="text-sm text-gray-600">Texture and physical feedback</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="sensory-mixed" name="sensory" value="mixed" class="hidden">
+                                    <label for="sensory-mixed" class="block border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-blue-400 transition">
+                                        <div class="flex items-center">
+                                            <div class="bg-green-100 p-2 rounded-full mr-4">
+                                                <i data-feather="layers" class="text-green-600"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-gray-900">Mixed</h4>
+                                                <p class="text-sm text-gray-600">Combination of senses</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button class="prev-btn bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-3 px-6 rounded-lg transition">
+                                Previous
+                            </button>
+                            <button class="next-btn bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition">
+                                Next Question
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 5 -->
+                    <div class="quiz-step hidden" data-step="5">
+                        <div class="mb-8">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">5. What's your reward style?</h3>
+                            <p class="text-gray-600 mb-4">This helps us recommend products with the right motivational triggers</p>
+                            <div class="space-y-4">
+                                <div>
+                                    <input type="radio" id="reward-immediate" name="reward" value="immediate" class="hidden">
+                                    <label for="reward-immediate" class="block border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-blue-400 transition">
+                                        <div class="flex items-center">
+                                            <div class="bg-yellow-100 p-2 rounded-full mr-4">
+                                                <i data-feather="zap" class="text-yellow-600"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-gray-900">Immediate Gratification</h4>
+                                                <p class="text-sm text-gray-600">I need quick, visible results</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="reward-goal" name="reward" value="goal" class="hidden">
+                                    <label for="reward-goal" class="block border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-blue-400 transition">
+                                        <div class="flex items-center">
+                                            <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                                <i data-feather="flag" class="text-blue-600"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-gray-900">Goal-Oriented</h4>
+                                                <p class="text-sm text-gray-600">I work toward long-term targets</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="reward-social" name="reward" value="social" class="hidden">
+                                    <label for="reward-social" class="block border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-blue-400 transition">
+                                        <div class="flex items-center">
+                                            <div class="bg-pink-100 p-2 rounded-full mr-4">
+                                                <i data-feather="users" class="text-pink-600"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-gray-900">Social Recognition</h4>
+                                                <p class="text-sm text-gray-600">I'm motivated by others' approval</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="reward-intrinsic" name="reward" value="intrinsic" class="hidden">
+                                    <label for="reward-intrinsic" class="block border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-blue-400 transition">
+                                        <div class="flex items-center">
+                                            <div class="bg-green-100 p-2 rounded-full mr-4">
+                                                <i data-feather="heart" class="text-green-600"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-gray-900">Intrinsic Motivation</h4>
+                                                <p class="text-sm text-gray-600">I find joy in the activity itself</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button class="prev-btn bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-3 px-6 rounded-lg transition">
+                                Previous
+                            </button>
+                            <button id="submit-quiz" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition">
+                                Get My Results
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Results -->
+                    <div class="quiz-step hidden" data-step="results">
+                        <div class="text-center mb-8">
+                            <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i data-feather="check-circle" class="text-blue-600 w-10 h-10"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-900 mb-3">Your Neuro-Fit Profile is Ready!</h2>
+                            <p class="text-lg text-gray-600">We've analyzed your responses to recommend the perfect fitness gear</p>
+                        </div>
+                        
+                        <div class="bg-blue-50 rounded-2xl p-6 mb-8">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">Your Results</h3>
+                            <div id="quiz-results" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <!-- Results will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <div class="mb-8">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">Recommended For You</h3>
+                            <div id="recommended-products" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <!-- Products will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <div class="bg-yellow-50 rounded-2xl p-6 mb-8">
+                            <div class="flex flex-col md:flex-row items-center">
+                                <div class="md:w-2/3 mb-4 md:mb-0">
+                                    <h3 class="text-xl font-bold text-gray-900 mb-2">Exclusive Quiz Reward!</h3>
+                                    <p class="text-gray-600 mb-2">As a thank you for completing our quiz, enjoy 15% off your first order.</p>
+                                    <p class="text-sm text-gray-500">Use code: <span class="font-bold">NEUROQUIZ15</span> at checkout</p>
+                                </div>
+                                <div class="md:w-1/3 flex justify-center md:justify-end">
+                                    <a href="index.html" class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-3 px-6 rounded-lg transition inline-block">
+                                        Shop Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-center">
+                            <button id="retake-quiz" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-3 px-8 rounded-lg transition mr-4">
+                                Retake Quiz
+                            </button>
+                            <button id="save-results" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition flex items-center">
+                                <i data-feather="mail" class="mr-2"></i>
+                                Email My Results
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            feather.replace();
+            
+            const quizSteps = document.querySelectorAll('.quiz-step');
+            const nextButtons = document.querySelectorAll('.next-btn');
+            const prevButtons = document.querySelectorAll('.prev-btn');
+            const submitButton = document.getElementById('submit-quiz');
+            const retakeButton = document.getElementById('retake-quiz');
+            const progressBar = document.getElementById('quiz-progress');
+            let currentStep = 1;
+            const totalSteps = 5; // Excluding results step
+            
+            // Sample product data
+            const products = {
+                strength: [
+                    {
+                        id: 1,
+                        name: "NeuroLift Dumbbell Set",
+                        price: 129.99,
+                        image: "http://static.photos/fitness/640x360/305",
+                        description: "Weight-distributed for optimal muscle engagement"
+                    },
+                    {
+                        id: 2,
+                        name: "FocusGrip Barbell",
+                        price: 89.99,
+                        image: "http://static.photos/fitness/640x360/306",
+                        description: "Textured grip enhances neural connection"
+                    },
+                    {
+                        id: 3,
+                        name: "PowerPlate Resistance Bands",
+                        price: 49.99,
+                        image: "http://static.photos/fitness/640x360/307",
+                        description: "Color-coded tension levels for progressive training"
+                    }
+                ],
+                endurance: [
+                    {
+                        id: 4,
+                        name: "AeroStride Treadmill",
+                        price: 799.99,
+                        image: "http://static.photos/fitness/640x360/308",
+                        description: "Pacing technology matches your cadence"
+                    },
+                    {
+                        id: 5,
+                        name: "EnduroFit Bike",
+                        price: 599.99,
+                        image: "http://static.photos/fitness/640x360/309",
+                        description: "Ergonomic design reduces fatigue"
+                    },
+                    {
+                        id: 6,
+                        name: "RhythmRope Jump Rope",
+                        price: 29.99,
+                        image: "http://static.photos/fitness/640x360/310",
+                        description: "Weighted for perfect swing timing"
+                    }
+                ],
+                flexibility: [
+                    {
+                        id: 7,
+                        name: "ZenFlex Yoga Mat",
+                        price: 59.99,
+                        image: "http://static.photos/fitness/640x360/311",
+                        description: "Texture-tuned for mindfulness"
+                    },
+                    {
+                        id: 8,
+                        name: "FlowState Stretching Straps",
+                        price: 39.99,
+                        image: "http://static.photos/fitness/640x360/312",
+                        description: "Progressive resistance markers"
+                    },
+                    {
+                        id: 9,
+                        name: "BalanceCore Foam Roller",
+                        price: 49.99,
+                        image: "http://static.photos/fitness/640x360/313",
+                        description: "Dual-density for sensory feedback"
+                    }
+                ],
+                recovery: [
+                    {
+                        id: 10,
+                        name: "RecoverPro Massage Gun",
+                        price: 149.99,
+                        image: "http://static.photos/fitness/640x360/314",
+                        description: "Variable frequencies for neural relaxation"
+                    },
+                    {
+                        id: 11,
+                        name: "NeuroIce Compression Sleeves",
+                        price: 39.99,
+                        image: "http://static.photos/fitness/640x360/315",
+                        description: "Targeted pressure points"
+                    },
+                    {
+                        id: 12,
+                        name: "SleepDeep Recovery Pillow",
+                        price: 69.99,
+                        image: "http://static.photos/fitness/640x360/316",
+                        description: "Ergonomic design for CNS recovery"
+                    }
+                ]
+            };
+            
+            // Next button functionality
+            nextButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Validate current step has selection
+                    const currentQuestion = document.querySelector(`.quiz-step[data-step="${currentStep}"]`);
+                    const selectedOption = currentQuestion.querySelector('input:checked');
+                    
+                    if (!selectedOption && currentStep !== 0) {
+                        alert('Please select an option to continue');
+                        return;
+                    }
+                    
+                    // Hide current step
+                    document.querySelector(`.quiz-step[data-step="${currentStep}"]`).classList.add('hidden');
+                    
+                    // Show next step
+                    currentStep++;
+                    document.querySelector(`.quiz-step[data-step="${currentStep}"]`).classList.remove('hidden');
+                    
+                    // Update progress bar
+                    progressBar.style.width = `${(currentStep / totalSteps) * 100}%`;
+                });
+            });
+            
+            // Previous button functionality
+            prevButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Hide current step
+                    document.querySelector(`.quiz-step[data-step="${currentStep}"]`).classList.add('hidden');
+                    
+                    // Show previous step
+                    currentStep--;
+                    document.querySelector(`.quiz-step[data-step="${currentStep}"]`).classList.remove('hidden');
+                    
+                    // Update progress bar
+                    progressBar.style.width = `${(currentStep / totalSteps) * 100}%`;
+                });
+            });
+            
+            // Submit quiz
+            submitButton.addEventListener('click', () => {
+                // Get all selected values
+                const goal = document.querySelector('input[name="goal"]:checked').value;
+                const challenge = document.querySelector('input[name="challenge"]:checked').value;
+                const setting = document.querySelector('input[name="setting"]:checked').value;
+                const sensory = document.querySelector('input[name="sensory"]:checked').value;
+                const reward = document.querySelector('input[name="reward"]:checked').value;
+                
+                // Hide current step
+                document.querySelector(`.quiz-step[data-step="${currentStep}"]`).classList.add('hidden');
+                
+                // Show results step
+                document.querySelector('.quiz-step[data-step="results"]').classList.remove('hidden');
+                
+                // Update progress bar to 100%
+                progressBar.style.width = '100%';
+                
+                // Display results summary
+                const resultsContainer = document.getElementById('quiz-results');
+                resultsContainer.innerHTML = `
+                    <div class="bg-white p-4 rounded-lg">
+                        <h4 class="font-bold text-gray-900 mb-2">Primary Goal</h4>
+                        <p class="text-gray-600 capitalize">${goal}</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg">
+                        <h4 class="font-bold text-gray-900 mb-2">Biggest Challenge</h4>
+                        <p class="text-gray-600 capitalize">${challenge.replace('-', ' ')}</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg">
+                        <h4 class="font-bold text-gray-900 mb-2">Workout Setting</h4>
+                        <p class="text-gray-600 capitalize">${setting}</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg">
+                        <h4 class="font-bold text-gray-900 mb-2">Sensory Preference</h4>
+                        <p class="text-gray-600 capitalize">${sensory}</p>
+                    </div>
+                `;
+                
+                // Display recommended products based on primary goal
+                const recommendedContainer = document.getElementById('recommended-products');
+                recommendedContainer.innerHTML = '';
+                
+                products[goal].forEach(product => {
+                    recommendedContainer.innerHTML += `
+                        <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
+                            <div class="relative">
+                                <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover">
+                                <div class="absolute top-3 right-3 bg-white rounded-full p-2 shadow">
+                                    <i data-feather="heart" class="text-gray-400 hover:text-red-500 cursor-pointer"></i>
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-medium text-gray-900 mb-1">${product.name}</h3>
+                                <p class="text-sm text-gray-600 mb-2">${product.description}</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-gray-900">$${product.price.toFixed(2)}</span>
+                                    <button class="bg-blue-100 text-blue-600 p-2 rounded-full hover:bg-blue-200 transition">
+                                        <i data-feather="shopping-cart" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                feather.replace();
+            });
+            
+            // Retake quiz
+            retakeButton.addEventListener('click', () => {
+                // Reset to first step
+                document.querySelector('.quiz-step[data-step="results"]').classList.add('hidden');
+                document.querySelector(`.quiz-step[data-step="1"]`).classList.remove('hidden');
+                
+                // Reset progress bar
+                progressBar.style.width = '20%';
+                currentStep = 1;
+                
+                // Clear all selections
+                document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                    radio.checked = false;
+                });
+            });
+            
+            // Save results (email)
+            document.getElementById('save-results').addEventListener('click', () => {
+                alert('Feature coming soon! For now, take a screenshot of your results.');
+            });
+        });
+    </script>
+</body>
+</html>
