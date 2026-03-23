@@ -14,7 +14,7 @@ export default function Navbar() {
     <div className={styles.navBar}>
       <Link href="/">
         <div className={styles.logo}>
-          <img src="/logo.svg" alt="logo" />
+         <img src="/logo.jpg" alt="Inspire Original" /> 
         </div>
       </Link>
       <ul

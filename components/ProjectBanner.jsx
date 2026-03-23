@@ -5,35 +5,30 @@ export default function ProjectBanner() {
   return (
     <div className={styles.container}>
       <div className={styles.projectBox}>
-        <h2>4DEVbyDEV project</h2>
+        <h2>Inspire Original</h2>
         <p>
-          You can find all details and codebase of this project in our GitHub
-          repository. Please take a look and give us a star. ⭐ 😉
+          Premium print-on-demand apparel crafted for those who dare to stand apart. Every piece is made to order — designed with intention, delivered with excellence.
         </p>
         <div className={styles.buttonLine}>
-          <Link href="https://github.com/fl4viooliveira/4devbydev">
-            <button>
-              <img src="icons/git.svg" alt="" />
-              Repository
-            </button>
+          <Link href="/about">
+            <button>Our Story</button>
           </Link>
-          {/* <button>View more</button> */}
         </div>
       </div>
       <div className={styles.helpBox}>
-        <h2>How help this Open Source project?</h2>
+        <h2>Why Choose Inspire Original?</h2>
         <ul className={styles.helpItems}>
           <li>
-            <img src="icons/git-mask.svg" alt="" />
-            <span>Code contribution.</span>
-          </li>
-          <li>
             <img src="icons/heart.svg" alt="" />
-            <span>Sponsoring the project.</span>
+            <span>Exclusive limited designs.</span>
           </li>
           <li>
             <img src="icons/add-cart.svg" alt="" />
-            <span>Buying a product on this website.</span>
+            <span>Premium quality, made to order.</span>
+          </li>
+          <li>
+            <img src="icons/git-mask.svg" alt="" />
+            <span>Delivered straight to your door.</span>
           </li>
         </ul>
       </div>

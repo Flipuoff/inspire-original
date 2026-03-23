@@ -1,65 +1,8 @@
-.container {
-  display: flex;
-  width: calc(100% - 140px);
-  border: 1px solid var(--yellow);
-  margin: 30px auto 0 auto;
-  border-radius: 30px;
-  overflow: hidden;
-}
-.imgBox {
-  background-color: var(--light-yellow);
-  flex: 1;
-  border-radius: 0 200px 0 200px;
-  display: flex;
-  justify-content: center;
-  object-fit: scale-down;
-  max-height: 300px;
-}
-.imgBox img {
-  width: 100%;
-  min-width: 300px;
-  object-fit: scale-down;
-}
-.infoBox {
-  flex: 1;
-  margin: 1em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 300px;
-}
-.infoBox h2 {
-  color: #ffff;
-  font-size: calc(0.5rem + 1vw);
-  padding: 1em;
-  height: 50%;
-  display: flex;
-  align-items: center;
-  text-align: center;
-}
-.infoBox button {
-  background-color: var(--yellow);
-  margin: auto;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  border: none;
-  color: var(--blue);
-  font-size: calc(0.5rem + 1vw);
-  font-weight: 700;
-}
-
-@media (max-width: 900px) {
-  .container {
-    flex-wrap: wrap;
-  }
-  .infoBox {
-    min-width: 200px;
-  }
-}
-@media (max-width: 500px) {
-  .container {
-    width: calc(100% - 20px);
-    margin: 10px auto;
-  }
-}
+.container { display: flex; align-items: center; justify-content: center; min-height: 520px; padding: 80px 48px; position: relative; overflow: hidden; background-color: var(--black); }
+.container::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(201,168,76,0.05) 0%, transparent 70%); pointer-events: none; }
+.imgBox { flex: 1; display: flex; justify-content: center; align-items: center; max-width: 500px; }
+.imgBox img { width: 100%; border: var(--border-gold); object-fit: cover; max-height: 380px; }
+.infoBox { flex: 1; padding: 0 60px; display: flex; flex-direction: column; gap: 32px; max-width: 560px; }
+.infoBox h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; font-style: italic; color: var(--white-dim); line-height: 1.8; letter-spacing: 0.03em; }
+.infoBox button { align-self: flex-start; }
+@media (max-width: 768px) { .container { flex-direction: column; padding: 48px 24px; gap: 40px; } .infoBox { padding: 0; } .infoBox h2 { font-size: 1.2rem; } }

@@ -1,31 +1,8 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  width: calc(100% - 140px);
-  height: fit-content;
-  margin: 30px auto;
-  color: #ffff;
-}
-.container h1 {
-  margin: 10px auto 10px auto;
-}
-.textBox {
-  line-height: 1;
-}
-.textBox ul li {
-  margin-left: 20px;
-  padding: 20px;
-  font-size: 20px;
-  text-align: justify;
-}
-.textBox p {
-  margin: 5px 0;
-  font-size: 1.5em;
-  font-weight: 200;
-}
-.textBox h2 {
-  margin: 25px 0 10px 0;
-}
-.textBox h3 {
-  margin: 25px 0;
-}
+.container { max-width: 800px; margin: 0 auto; padding: 80px 48px; }
+.container h1 { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--gold); margin-bottom: 48px; text-align: center; }
+.textBox { background: var(--black-card); border: var(--border-gold); padding: 48px; }
+.textBox p { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--white-dim); line-height: 1.8; margin-bottom: 24px; }
+.textBox h2 { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin: 32px 0 12px; }
+.textBox h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; font-weight: 300; color: var(--white-dim); margin-top: 40px; text-align: center; }
+.textBox ul li { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: var(--white-dim); padding: 6px 0 6px 16px; position: relative; }
+.textBox ul li::before { content: '◆'; position: absolute; left: 0; color: var(--gold); font-size: 0.5rem; top: 10px; }

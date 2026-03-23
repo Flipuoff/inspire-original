@@ -1,17 +1,4 @@
-.container {
-  display: flex;
-  justify-content: space-between;
-  width: calc(100% - 140px);
-  background: rgba(255, 255, 255, 0.1);
-  margin: 10px auto;
-  justify-content: center;
-}
-.img {
-  margin: 10px 0;
-}
-@media (max-width: 500px) {
-  .container {
-    width: calc(100% - 20px);
-    margin: 0 auto;
-  }
-}
+.container { background: var(--black); border-top: 1px solid rgba(201,168,76,0.2); padding: 40px 48px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.img { height: 48px; width: auto; filter: brightness(0) invert(1); opacity: 0.5; transition: opacity 0.3s ease; }
+.img:hover { opacity: 1; }
+.container::after { content: '© 2025 Inspire Original. All Rights Reserved.'; font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.2em; color: rgba(245,240,232,0.2); text-transform: uppercase; }

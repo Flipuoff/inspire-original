@@ -5,15 +5,14 @@ export default function Banner() {
   return (
     <div className={styles.container}>
       <div className={styles.imgBox}>
-        <img src={process.env.NEXT_PUBLIC_BANNER_IMG} alt="" />
+    <img src="/logo.jpg" alt="Inspire Original" />    
       </div>
       <div className={styles.infoBox}>
         <h2>
-          This project intends to be an appliable e-commerce application with a
-          functional deployed website direct from our OpenSource repository.
+          Crafted for those who dare to stand apart. Inspire Original is more than a brand — it is a declaration of identity.
         </h2>
         <Link href="/about">
-          <button>View more</button>
+          <button>Discover More</button>
         </Link>
       </div>
     </div>

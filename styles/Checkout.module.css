@@ -1,87 +1,112 @@
 .containerBox {
-  display: flex;
-  /* width: calc(100% - 140px); */
-  height: fit-content;
-  margin: 0px auto;
-  color: #ffff;
-  flex-direction: column;
+  min-height: 100vh;
+  background: var(--black);
 }
+
 .mainBox {
-  width: calc(100% - 140px);
   display: flex;
-  justify-content: space-between;
-  margin: 10px auto;
+  gap: 2px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 48px;
 }
+
 .shippingBox {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  flex: 1;
+  padding: 40px;
+  background: var(--black-card);
+  border: var(--border-gold);
 }
-.formBox {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px 0;
-  border: solid 1px var(--yellow);
+
+.formBox h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 32px;
 }
+
 .inputBox {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  margin: 5px 0;
-  padding: 0 20px;
+  gap: 8px;
+  margin-bottom: 20px;
 }
+
 .inputBox label {
-  margin-bottom: 5px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--white-dim);
 }
-.inputBox input {
-  height: 35px;
-}
+
 .button {
-  margin: 10px;
-  padding: 5px 10px;
-  cursor: pointer;
-  font-size: 1em;
-  font-weight: 400;
+  margin-top: 12px;
+  width: 100%;
+  justify-content: center;
 }
+
 .productsBox {
-  width: 100%;
-  display: flex;
+  flex: 1;
+  padding: 40px;
+  background: var(--black-card);
+  border: var(--border-gold);
 }
-.listBox {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  padding: 10px 0;
-  flex-direction: column;
+
+.listBox h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 32px;
 }
+
 .productsList {
-  margin: 15px 0;
-  list-style: none;
   display: flex;
   flex-direction: column;
-  width: 90%;
+  gap: 1px;
 }
+
 .item {
-  border-bottom: solid 1px var(--yellow);
-  margin: 5px, 0;
-  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.1);
 }
+
+.item h5 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--white-dim);
+  letter-spacing: 0.03em;
+}
+
+.item h5:last-child {
+  color: var(--gold);
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+}
+
 .totalPrice {
-  margin: 15px 0;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: var(--border-gold);
 }
-@media (max-width: 900px) {
-  .containerBox {
-    width: calc(100% - 20px);
-  }
-  .mainBox {
-    flex-wrap: wrap;
-  }
+
+.totalPrice h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  color: var(--white);
+  letter-spacing: 0.1em;
 }
-@media (max-width: 500px) {
+
+@media (max-width: 768px) {
   .mainBox {
-    width: calc(100% - 20px);
-    margin: 10px auto;
+    flex-direction: column;
+    padding: 32px 16px;
   }
 }
